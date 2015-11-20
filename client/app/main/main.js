@@ -4,7 +4,8 @@ angular.module('angMaterialApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {
-        url: '/',
+        url: '/main',
+        abstract: true,
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       });

@@ -30,8 +30,9 @@ angular.module('angMaterialApp', [
       .iconSet('avatar', '../assets/iconsets/avatar-icons.svg', 128);
   })
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/main/dash');
 
     $locationProvider.html5Mode(true);
   });
