@@ -1,0 +1,37 @@
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+
+
+
+
+md-badge{
+  margin: 0 0 0 8px;
+  background-color: #259b24;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.md-warn{
+  background-color: #F44336;
+}
+
+
+.second-icon-right{
+	    right: 50px !important;
+}
+
+md-list-item > .md-avatar, md-list-item .md-list-item-inner > .md-avatar {
+    width: 50px !important;
+    height: 50px !important;
+}

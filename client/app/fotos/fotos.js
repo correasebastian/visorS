@@ -3,25 +3,25 @@
 angular.module('angMaterialApp')
     .config(function($stateProvider) {
         $stateProvider
-            .state('main.dash', {
-                url: '/dash',
+            .state('main.fotos', {
+                url: '/placas/:id/:placa',
+
                 views: {
                     'mainContent': {
-                        templateUrl: 'app/dash/dash2.html',
-                        controller: 'DashCtrl',
-                        controllerAs:"Dash",
+                        templateUrl: 'app/fotos/fotos.html',
+                        controller: 'FotosCtrl',
+                        controllerAs: 'Fotos',
                         resolve: {
                             //     // controller will not be loaded until $waitForAuth resolves
                             //     // Auth refers to our $firebaseAuth wrapper in the example above
-                            "currentAuth": ["Auth",
+                            'currentAuth': ['Auth',
                                 function(Auth) {
                                     // $waitForAuth returns a promise so the resolve waits for it to complete
-                                    return Auth.$waitForAuth();
+                                    return Auth.$requireAuth();
                                 }
                             ]
                         }
                     }
                 }
-
             });
     });

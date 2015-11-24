@@ -14,6 +14,7 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -21,6 +22,8 @@
       <!-- injector:css -->
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/dash/dash.css">
+      <link rel="stylesheet" href="app/fotos/fotos.css">
+      <link rel="stylesheet" href="app/login/login.css">
       <link rel="stylesheet" href="app/main/main.css">
       <!-- endinjector -->
     <!-- endbuild -->
@@ -62,6 +65,9 @@
       <script src="bower_components/angular-material/angular-material.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/firebase/firebase.js"></script>
+      <script src="bower_components/angularfire/dist/angularfire.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -70,10 +76,22 @@
         
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/common/auth.factory.js"></script>
+          <script src="app/common/auth.run.js"></script>
+          <script src="app/common/fbroot.factory.js"></script>
+          <script src="app/common/firebase.constants.js"></script>
+          <script src="app/common/timeago.directive.js"></script>
           <script src="app/dash/dash.controller.js"></script>
           <script src="app/dash/dash.js"></script>
+          <script src="app/dash/placas.factory.js"></script>
+          <script src="app/fotos/fotos.controller.js"></script>
+          <script src="app/fotos/fotos.js"></script>
+          <script src="app/login/login.controller.js"></script>
+          <script src="app/login/login.js"></script>
           <script src="app/main/main.controller.js"></script>
+          <script src="app/main/main.directive.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/toolbarHelper/toolbarHelper.service.js"></script>
           <script src="components/shell/dialog/dialog.controller.js"></script>
           <script src="components/shell/shell.controller.js"></script>
           <!-- endinjector -->

@@ -1,5 +1,5 @@
-<div ng-controller="ShellCtrl" class="main-shell">
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+<div ng-controller="ShellCtrl" class="main-shell" >
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <md-toolbar class="md-tall md-accent">
         </md-toolbar>
         <md-content layout-padding>
@@ -20,7 +20,7 @@
             </md-button>
         </md-content>
     </md-sidenav>
-    <md-toolbar>
+    <!-- <md-toolbar>
         <div class="md-toolbar-tools">
             <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
                 <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
@@ -61,5 +61,5 @@
                 </md-menu-content>
             </md-menu>
         </div>
-    </md-toolbar>
+    </md-toolbar> -->
 </div>

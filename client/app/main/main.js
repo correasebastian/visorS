@@ -7,6 +7,6 @@ angular.module('angMaterialApp')
         url: '/main',
         abstract: true,
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl as Main'
       });
   });

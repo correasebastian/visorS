@@ -1,4 +1,51 @@
-<div ng-include="'components/shell/shell.html'"></div>
-<!-- Add your site or application content here -->
-<div ui-view></div>
-
+<div layout="row">
+    <!-- <div layout="column" ng-include="'components/shell/shell.html'"></div> -->
+    <!-- Add your site or application content here -->
+    <div layout="column">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar class="md-tall md-accent">
+            </md-toolbar>
+            <md-content layout-padding>
+                <md-button ng-click="openBottomSheet()">
+                    Open a Bottom Sheet!
+                </md-button>
+                <md-button ng-click="showAlert()" class="md-raised md-warn">
+                    Employee Alert!
+                </md-button>
+                <md-button ng-click="showDialog($event)" class="md-raised">
+                    Custom Dialog
+                </md-button>
+                <md-button ng-click="closeAlert()" ng-disabled="!hasAlert()" class="md-raised">
+                    Close Alert
+                </md-button>
+                <md-button ng-click="showGreeting($event)" class="md-raised md-primary">
+                    Greet Employee
+                </md-button>
+            </md-content>
+        </md-sidenav>
+    </div>
+    <div layout="column" layout-fill>
+        <div layout="row">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings" ng-click="Main.toggleLeft()" hide-gt-md>
+                        <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
+                    </md-button>
+                    <h2>
+                        <span>{{Main.title}}</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="assets/icons/menu.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="More" ng-click="Main.logout()">
+                        <md-icon md-svg-icon="av:not_interested"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+        </div>
+        <div layout="row" layout-fill>
+            <div ui-view name="mainContent" layout="column" layout-fill></div>
+        </div>
+    </div>
+</div>

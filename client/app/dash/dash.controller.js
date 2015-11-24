@@ -1,65 +1,47 @@
-'use strict';
 
-angular.module('angMaterialApp')
-    .controller('DashCtrl', function($scope, $http) {
-        $scope.awesomeThings = [];
+var dc;
+(function() {
+    'use strict';
 
-        $http.get('/api/things').success(function(awesomeThings) {
-            $scope.awesomeThings = awesomeThings;
-        });
+    angular
+        .module('angMaterialApp')
+        .controller('DashCtrl', DashCtrl);
 
-        $scope.getColor = function($index) {
-            var _d = ($index + 1) % 11;
-            var bg = '';
+    DashCtrl.$inject = ['currentAuth', 'Placas', '$state', '$scope'];
 
-            switch (_d) {
-                case 1:
-                    bg = 'red';
-                    break;
-                case 2:
-                    bg = 'green';
-                    break;
-                case 3:
-                    bg = 'darkBlue';
-                    break;
-                case 4:
-                    bg = 'blue';
-                    break;
-                case 5:
-                    bg = 'yellow';
-                    break;
-                case 6:
-                    bg = 'pink';
-                    break;
-                case 7:
-                    bg = 'darkBlue';
-                    break;
-                case 8:
-                    bg = 'purple';
-                    break;
-                case 9:
-                    bg = 'deepBlue';
-                    break;
-                case 10:
-                    bg = 'lightPurple';
-                    break;
-                default:
-                    bg = 'yellow';
-                    break;
+    /* @ngInject */
+    function DashCtrl(currentAuth, Placas, $state, $scope) {
+        var vm = this;
+        dc=$scope;
+        var Main=$scope.$parent.Main;
+
+        vm.title = 'DashCtrl';
+        vm.goFotos=goFotos;
+
+        activate();
+
+        ////////////////
+
+        function activate() {
+            Main.changeTitle('Placas');
+            Placas.setArrayPlacas(currentAuth.uid, 1);
+            getPlacas();
+
+
+        }
+
+        function goFotos (placa) {
+            $state.go('main.fotos', { id: placa.$id, 'placa':placa.placa });
+        }
+
+        function getPlacas() {
+            return Placas.getArray()
+                .then(onGetPlacas);
+
+            function onGetPlacas(array) {
+                vm.placas = array;
+                return vm.placas;
             }
-
-            return bg;
-        };
-
-        $scope.getSpan = function($index) {
-            var _d = ($index + 1) % 11;
-
-            if (_d === 1 || _d === 5) {
-                return 2;
-            }
-        };
-
-        $scope.deleteThing = function(thing) {
-            $http.delete('/api/things/' + thing._id);
-        };
-    });
+        }
+    }
+})();

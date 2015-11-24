@@ -1,0 +1,75 @@
+<!-- <button ng-click="toggleConfig()">toggle</button>
+<span>{{configurationScmFull| json }}</span>
+
+<scm-full configuration="configurationScmFull" alerts="alertS(msg)">
+</scm-full>
+ -->
+<!-- {{Dash | json}} -->
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="placa in Dash.placas" ng-click="Dash.goFotos(placa)">
+        <!-- <md-checkbox ng-model="item.done"></md-checkbox> -->
+        <img class="md-avatar" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg">
+        <div class="md-list-item-text">
+            <h3>{{placa.placa}}</h3>
+            <p>{{placa.timeStamp}}</p>
+            <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span>
+        </div>
+        <md-icon md-svg-icon="communication:phone" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
+       <!--  <md-icon md-svg-icon="communication:phone" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3 second-icon-right" ng-class="{'md-primary': person.newMessage}"> -->
+            
+        </md-icon>
+
+    </md-list-item>
+</md-list>
+<md-list-item ng-repeat="placa in Dash.placas" ng-click="goToPerson(person.name, $event)">
+    <img alt="{{ person.name }}" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg" class="md-avatar" />
+    <p>{{ placa.placa }}</p>
+    <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span>
+    <md-icon md-svg-icon="communication:phone" aria-label="Open Chat" class="md-secondary md-hue-3"></md-icon>
+</md-list-item>
+<md-badge ng-class="{'md-warn': warn()}">200</md-badge>
+<md-button class="md-raised md-primary">title
+    <md-badge ng-class="{'md-warn': warn()}">200</md-badge>
+</md-button>
+<md-card ng-repeat="placa in Dash.placas">
+    <img src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg" class="md-card-image" alt="image caption">
+    <md-card-content>
+        <h2>{{placa.placa}}</h2>
+        <p>Card content</p>
+    </md-card-content>
+    <md-card-footer>
+        Card footer
+    </md-card-footer>
+</md-card>
+<md-list ng-controller="ListCtrl" ng-cloak>
+    <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+    <md-list-item ng-repeat="topping in toppings">
+        <p> {{ topping.name }} </p>
+        <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">Clickable Items with Secondary Controls</md-subheader>
+    <md-list-item ng-click="navigateTo(setting.extraScreen, $event)" ng-repeat="setting in settings">
+        <md-icon md-svg-icon="{{setting.icon}}"></md-icon>
+        <p> {{ setting.name }} </p>
+        <md-switch class="md-secondary" ng-model="setting.enabled"></md-switch>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('data usage', $event)">
+        <md-icon md-svg-icon="cached"></md-icon>
+        <p>Data Usage</p>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">Checkbox with Secondary Action</md-subheader>
+    <md-list-item ng-repeat="message in messages">
+        <md-checkbox ng-model="message.selected"></md-checkbox>
+        <p>{{message.title}}</p>
+        <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat" md-svg-icon="communication:message"></md-icon>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-subheader class="md-no-sticky">Avatar with Secondary Action Icon</md-subheader>
+    <md-list-item ng-repeat="person in people" ng-click="goToPerson(person.name, $event)">
+        <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />
+        <p>{{ person.name }}</p>
+        <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
+    </md-list-item>
+</md-list>

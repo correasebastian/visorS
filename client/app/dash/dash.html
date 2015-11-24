@@ -1,8 +1,163 @@
-<md-grid-list class="things-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+<!-- <md-grid-list class="things-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
     <md-grid-tile ng-repeat="thing in awesomeThings" ng-class="getColor($index)" md-rowspan="{{getSpan($index)}}" md-colspan="{{getSpan($index)}}" md-colspan-sm="1">
         <md-icon class="avatar-icon" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
         <md-grid-tile-footer>
             <h3>{{thing.name}}</h3></md-grid-tile-footer>
     </md-grid-tile>
 </md-grid-list>
-<span>OELO</span>
+<span>OELO</span> -->
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+    <ng-md-icon icon="add"></ng-md-icon>
+</md-button>
+<md-toolbar ng-show="!showSearch">
+    <div class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+            <md-icon md-svg-icon="navigation:expand_more"></md-icon>
+        </md-button>
+        <h3>
+            Dashboard
+          </h3>
+        <span flex></span>
+        <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+        </md-button>
+    </div>
+    <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
+        <md-tab id="tab1" aria-controls="tab1-content">
+            Latest
+        </md-tab>
+        <md-tab id="tab2" aria-controls="tab2-content">
+            Favorites
+        </md-tab>
+    </md-tabs>
+</md-toolbar>
+<md-toolbar class="md-hue-1" ng-show="showSearch">
+    <div class="md-toolbar-tools">
+        <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+            <ng-md-icon icon="arrow_back"></ng-md-icon>
+        </md-button>
+        <h3 flex="10">
+            Back
+          </h3>
+        <md-input-container md-theme="input" flex>
+            <label>&nbsp;</label>
+            <input ng-model="search.who" placeholder="enter search">
+        </md-input-container>
+        <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<!-- ------------------------------------------------------------------ -->
+<md-content flex md-scroll-y>
+    <i class="mdi mdi-bell"></i>
+    <md-list>
+        <md-list-item ng-repeat="thing in awesomeThings">
+            <img class="md-avatar" ng-src="assets/images/yeoman.png">
+            <span>{{thing.name}}</span>
+            <md-icon class="md-avatar-icon" md-svg-icon="communication:phone"></md-icon>
+        </md-list-item>
+        <md-list-item>
+            <md-icon class="md-avatar-icon" md-svg-icon="social:mood_bad"></md-icon>
+            <span>Item content in list</span>
+        </md-list-item>
+    </md-list>
+    -----------------------------------------------------------md-grid-list
+    <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+        <md-grid-tile class="red" md-rowspan="2" md-colspan="2">
+            <md-icon md-svg-icon="avatar:svg-1"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-1</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="green">
+            <md-icon md-svg-icon="avatar:svg-2"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-2</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="darkBlue">
+            <md-icon md-svg-icon="avatar:svg-3"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-3</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="blue" md-colspan="2">
+            <md-icon md-svg-icon="avatar:svg-4"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-4</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="yellow" md-rowspan="2" md-colspan="2">
+            <md-icon md-svg-icon="avatar:svg-5"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-5</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="pink">
+            <md-icon md-svg-icon="avatar:svg-15"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-6</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="darkBlue">
+            <md-icon md-svg-icon="avatar:svg-7"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-7</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="purple">
+            <md-icon md-svg-icon="avatar:svg-8"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-8</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="deepBlue">
+            <md-icon md-svg-icon="avatar:svg-13"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-9</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="lightPurple">
+            <md-icon md-svg-icon="avatar:svg-10"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-10</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        <md-grid-tile class="yellow">
+            <md-icon md-svg-icon="avatar:svg-11"></md-icon>
+            <md-grid-tile-footer>
+                <h3>Svg-11</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+    ------------------------------ md-fab-speed-dial
+    <md-fab-speed-dial md-direction="down" class="md-fling">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn">
+                <md-tooltip md-direction="top">Menu</md-tooltip>
+                <md-icon md-svg-src="avatar:svg-11"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+            <md-button aria-label="twitter" class="md-fab md-raised md-mini">
+                <md-tooltip md-direction="left">Twitter</md-tooltip>
+                <md-icon md-svg-src="avatar:svg-12"></md-icon>
+            </md-button>
+            <md-button aria-label="facebook" class="md-fab md-raised md-mini">
+                <md-tooltip md-direction="right">Facebook</md-tooltip>
+                <md-icon md-svg-src="img/icons/facebook.svg"></md-icon>
+            </md-button>
+            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+                <md-tooltip md-direction="left">Google Hangout</md-tooltip>
+                <md-icon md-svg-src="img/icons/hangout.svg"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</md-content>
