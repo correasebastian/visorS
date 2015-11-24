@@ -1,4 +1,3 @@
-
 var dc;
 (function() {
     'use strict';
@@ -12,11 +11,11 @@ var dc;
     /* @ngInject */
     function DashCtrl(currentAuth, Placas, $state, $scope, UserInfo) {
         var vm = this;
-        dc=$scope;
-        var Main=$scope.$parent.Main;
+        dc = $scope;
+        var Main = $scope.$parent.Main;
 
         vm.title = 'DashCtrl';
-        vm.goFotos=goFotos;
+        vm.goFotos = goFotos;
 
         activate();
 
@@ -26,17 +25,20 @@ var dc;
             console.log('estpy en placas');
             Main.changeTitle('Placas');
             Main.hideToolbarFn(false);
-            Placas.setArrayPlacas(UserInfo.authData.uid, 5);
-            getPlacas();
-
+            UserInfo.getInfoUser(currentAuth.uid)
+                .then(getPlacas);
 
         }
 
-        function goFotos (placa) {
-            $state.go('main.fotos', { id: placa.$id, 'placa':placa.placa });
+        function goFotos(placa) {
+            $state.go('main.fotos', {
+                id: placa.$id,
+                'placa': placa.placa
+            });
         }
 
         function getPlacas() {
+            Placas.setArrayPlacas(currentAuth.uid, 5);
             return Placas.getArray()
                 .then(onGetPlacas);
 

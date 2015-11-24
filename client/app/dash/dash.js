@@ -13,11 +13,11 @@ angular.module('angMaterialApp')
                         resolve: {
                             //     // controller will not be loaded until $waitForAuth resolves
                             //     // Auth refers to our $firebaseAuth wrapper in the example above
-                            "currentAuth": [ 'UserInfo',
+                            "currentAuth": [ 'Auth',
 
-                                function( UserInfo) {
+                                function( Auth) {
                                     // $waitForAuth returns a promise so the resolve waits for it to complete
-                                    return  UserInfo. authInit();                               
+                                    return  Auth.$waitForAuth();                               
 
                                 }
                             ]

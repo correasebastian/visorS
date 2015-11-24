@@ -5,12 +5,12 @@
         .module('angMaterialApp')
         .factory('Placas', Placas);
 
-    Placas.$inject = ['$firebaseArray', 'FBROOT'];
+    Placas.$inject = ['$firebaseArray', 'FBROOT', 'UserInfo'];
 
     /* @ngInject */
-    function Placas($firebaseArray, FBROOT) {
+    function Placas($firebaseArray, FBROOT, UserInfo) {
         var ngArrayFb;
-        var _arrayPlacas=null;
+        var _arrayPlacas = null;
         var factory = {
             getArray: getArray,
             setArrayPlacas: setArrayPlacas
@@ -27,7 +27,7 @@
 
             lastNumber = parseInt(lastNumber) || 5;
             var query = null;
-            if ( false) {
+            if (UserInfo.userConfig.groupMode) {
                 // UserInfo.userConfig.groupMode ||
                 // var mainGroup=UserInfo.userConfig.group.$id;
                 var mainGroup = UserInfo.userConfig.defaultGroup;
@@ -38,17 +38,17 @@
             }
 
             ngArrayFb = $firebaseArray(query).$loaded();
-          /*  .then()
-            .catch()
+            /*  .then()
+              .catch()
 
-            function onGetPlacas (array) {
-                array
-                return 
-            }
+              function onGetPlacas (array) {
+                  array
+                  return 
+              }
 
-            function onError (err) {
-                // body...
-            }*/
+              function onError (err) {
+                  // body...
+              }*/
         }
     }
 })();
