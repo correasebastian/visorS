@@ -7,10 +7,10 @@ var dc;
         .module('angMaterialApp')
         .controller('DashCtrl', DashCtrl);
 
-    DashCtrl.$inject = ['currentAuth', 'Placas', '$state', '$scope'];
+    DashCtrl.$inject = ['currentAuth', 'Placas', '$state', '$scope', 'UserInfo'];
 
     /* @ngInject */
-    function DashCtrl(currentAuth, Placas, $state, $scope) {
+    function DashCtrl(currentAuth, Placas, $state, $scope, UserInfo) {
         var vm = this;
         dc=$scope;
         var Main=$scope.$parent.Main;
@@ -26,7 +26,7 @@ var dc;
             console.log('estpy en placas');
             Main.changeTitle('Placas');
             Main.hideToolbarFn(false);
-            Placas.setArrayPlacas(currentAuth.uid, 5);
+            Placas.setArrayPlacas(UserInfo.authData.uid, 5);
             getPlacas();
 
 

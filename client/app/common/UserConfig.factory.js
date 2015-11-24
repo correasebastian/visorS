@@ -5,10 +5,10 @@
         .module('angMaterialApp')
         .factory('UserInfo', UserInfo);
 
-    UserInfo.$inject = ['$firebaseArray', 'FBROOT', '$firebaseObject', '$q', 'logger', 'exception'];
+    UserInfo.$inject = ['$firebaseArray', 'FBROOT', '$firebaseObject', '$q', 'logger', 'exception', 'Auth'];
 
     /* @ngInject */
-    function UserInfo($firebaseArray, FBROOT, $firebaseObject, $q, logger, exception) {
+    function UserInfo($firebaseArray, FBROOT, $firebaseObject, $q, logger, exception, Auth) {
 
         var service = {
             getInfoUser: getInfoUser,
@@ -16,11 +16,31 @@
             userGroups: null,
             userGroupMode: null,
             userID: null,
-            userConfig: null
+            userConfig: null,
+            authInit: authInit,
+            authData: null
         };
         return service;
 
         ////////////////
+
+        function authInit() {
+            return Auth.$waitForAuth()
+                .then(onWaitDone)
+                .then(getInfoUser);
+
+            function onWaitDone(authData) {
+                if (authData) {
+                    service.authData = authData;
+                    console.log('logged in from router');
+                    return authData.uid;
+                } else {
+                    console.log('logged out');
+                    return $q.reject('not logged in');
+                    // do something else...
+                }
+            }
+        }
 
         function getInfoUser_v1(userId) {
             service.userID = userId;
@@ -38,13 +58,15 @@
         }
 
         function getInfoUser(userId) {
-            if(service.userConfig){
-                return $q.when(true);// ya esta cargado no es necesario volver a hacerlo
-            }            
+            if (service.userConfig) {
+                return $q.when(true); // ya esta cargado no es necesario volver a hacerlo
+            }
+
+            console.log('getUserInfo');
 
 
             return getUserConfig(userId)
-                .then(getUserGroups);// asi llamaria despues a GetUserGroups pero tambien lo puedo traer en congig
+                .then(getUserGroups); // asi llamaria despues a GetUserGroups pero tambien lo puedo traer en congig
             /*    .then(onGetUserInfo);
 
             function onGetUserInfo(data) {
@@ -74,7 +96,7 @@
         }
 
         function getUserGroups(userId) {
-            var query = FBROOT.child('users').child(userId).child('groups').orderByKey();//.limitToLast(1);
+            var query = FBROOT.child('users').child(userId).child('groups').orderByKey(); //.limitToLast(1);
 
             return $firebaseArray(query).$loaded()
                 .then(onGetGroups)

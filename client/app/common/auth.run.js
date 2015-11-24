@@ -26,16 +26,20 @@ var uf;
     /* @ngInject */
     function run(Auth, $state, $rootScope, UserInfo) {
 
-        uf=UserInfo;
-;
+        uf = UserInfo;
 
         Auth.$onAuth(function(authData) {
             if (authData) {
+                console.log("Logged in as on RUN:", authData.uid);
+                $state.go('main.dash');
+
+                /*no es necesario aca, por que esta en el router del main dash;
                 UserInfo.getInfoUser(authData.uid)
-                    .then(ongetUserInfo);
+                    .then(ongetUserInfo);*/
 
             } else {
-                UserInfo.userConfig=null;
+                UserInfo.userConfig = null;
+                UserInfo.authData = null;
                 console.log("Logged out");
                 $state.go('login');
             }
