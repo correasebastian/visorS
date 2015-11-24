@@ -1,15 +1,90 @@
-<md-card ng-repeat="foto in Fotos.fotos">
-    <img ng-src="{{foto.path}}" class="md-card-image" alt="Washed Out">
-    <!--     <md-card-content>
-        <h2 class="md-title">Paracosm</h2>
-        <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-    </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
-    </md-card-actions> -->
-</md-card>
-<br/>
-<md-card>
+<!-- <div id="slides_control">
+    <div>
+        <carousel interval="Fotos.myInterval">
+            <slide ng-repeat="foto in Fotos.fotos" active="slide.active">
+                <img ng-src="{{foto.path}}">
+                <div class="carousel-caption">
+                    <h4>Slide {{$index+1}}</h4>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</div> -->
+<div layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="Main.toggleLeft()" hide-gt-md>
+                <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
+            </md-button>
+            <span>{{Fotos.placa}}</span>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <!--   <md-button>
+                Right Bar Button
+            </md-button> -->
+              <md-button aria-label="photo" class="md-icon-button">
+                <md-icon md-svg-src="action:done"></md-icon>
+            </md-button>
+            <md-button aria-label="label" class="md-icon-button">
+                <md-icon md-svg-src="action:done_all"></md-icon>
+            </md-button>
+          
+        </div>
+    </md-toolbar>
+    <!-- <md-content>
+        Hello!
+    </md-content> -->
+</div>
+<!-- <md-fab-toolbar md-open="Fotos.fabConfig.isOpen" count="Fotos.fabConfig.count" md-direction="{{Fotos.fabConfig.selectedDirection}}">
+    <md-fab-trigger class="align-with-text">
+        <md-button aria-label="menu" class="md-fab md-primary">
+            <md-icon md-svg-src="assets/icons/menu.svg"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="label" class="md-icon-button">
+                <md-icon md-svg-src="action:done_all"></md-icon>
+            </md-button>
+            <md-button aria-label="photo" class="md-icon-button">
+                <md-icon md-svg-src="image:photo_camera"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+</md-fab-toolbar> -->
+<!-- {{Fotos | json}} -->
+<!-- <div class="lock-size" layout="row" layout-align="center center">
+    <md-fab-speed-dial md-open="Fotos.fabConfig.isOpen" md-direction="{{Fotos.fabConfig.selectedDirection}}" ng-class="Fotos.fabConfig.selectedMode">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn">
+                <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+            <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+            </md-button>
+            <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>
+            </md-button>
+            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+                <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</div> -->
+<md-content class="md-padding">
+    <md-card ng-repeat="foto in Fotos.fotos">
+        <img ng-src="data:image/jpeg;base64,{{foto.base64Data}}" class="md-card-image" alt="Washed Out">
+        <!-- <md-card-content>
+            <h2 class="md-title">Paracosm</h2>
+            <p>
+                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+        </md-card-actions> -->
+    </md-card>
+</md-content>

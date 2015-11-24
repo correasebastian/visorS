@@ -23,8 +23,10 @@ var dc;
         ////////////////
 
         function activate() {
+            console.log('estpy en placas');
             Main.changeTitle('Placas');
-            Placas.setArrayPlacas(currentAuth.uid, 1);
+            Main.hideToolbarFn(false);
+            Placas.setArrayPlacas(currentAuth.uid, 5);
             getPlacas();
 
 

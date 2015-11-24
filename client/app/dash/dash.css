@@ -31,7 +31,7 @@ md-badge{
 	    right: 50px !important;
 }
 
-md-list-item > .md-avatar, md-list-item .md-list-item-inner > .md-avatar {
+.scm-avatar {
     width: 50px !important;
     height: 50px !important;
 }

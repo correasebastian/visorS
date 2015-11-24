@@ -5,27 +5,29 @@
 </scm-full>
  -->
 <!-- {{Dash | json}} -->
-<md-list>
-    <md-list-item class="md-3-line" ng-repeat="placa in Dash.placas" ng-click="Dash.goFotos(placa)">
+<!-- <md-list>  cuando se las quito me deja apreciar el boton-->
+    <md-list-item class="md-3-line" ng-repeat="placa in Dash.placas | filter:{placa:Main.filterString} | orderBy:'-timeStamp'" ng-click="Dash.goFotos(placa)">
         <!-- <md-checkbox ng-model="item.done"></md-checkbox> -->
-        <img class="md-avatar" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg">
+        <img class="md-avatar scm-avatar" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg">
         <div class="md-list-item-text">
             <h3>{{placa.placa}}</h3>
             <p>{{placa.timeStamp}}</p>
-            <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span>
+            <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000" color="blue"></span>
         </div>
-        <md-icon md-svg-icon="communication:phone" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
-       <!--  <md-icon md-svg-icon="communication:phone" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3 second-icon-right" ng-class="{'md-primary': person.newMessage}"> -->
-            
+        <md-icon md-svg-icon="communication:phone"  aria-label="Open Chat" class="md-secondary md-hue-3" ></md-icon>
+         <md-icon md-svg-icon="communication:phone" aria-label="Open Chat" class="md-secondary md-hue-3 second-icon-right" >
         </md-icon>
-
+        <!-- <span class="md-secondary" scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span> -->
     </md-list-item>
-</md-list>
-<md-list-item ng-repeat="placa in Dash.placas" ng-click="goToPerson(person.name, $event)">
+<!-- </md-list> -->
+<!-- <md-list-item ng-repeat="placa in Dash.placas" ng-click="goToPerson(person.name, $event)">
     <img alt="{{ person.name }}" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg" class="md-avatar" />
-    <p>{{ placa.placa }}</p>
-    <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span>
-    <md-icon md-svg-icon="communication:phone" aria-label="Open Chat" class="md-secondary md-hue-3"></md-icon>
+    <div class="md-list-item-text">
+        <h3>{{placa.placa}}</h3>
+        <p>{{placa.timeStamp}}</p>
+        <span scm-time-ago unixms="{{placa.timeStamp}}" delay="30000"></span>
+    </div>
+    <md-icon md-svg-icon="communication:phone" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
 </md-list-item>
 <md-badge ng-class="{'md-warn': warn()}">200</md-badge>
 <md-button class="md-raised md-primary">title
@@ -73,3 +75,4 @@
         <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
     </md-list-item>
 </md-list>
+ -->

@@ -1,5 +1,8 @@
 // Include in index.html so that app level exceptions are handled.
 // Exclude from testRunner.html which should run exactly what it wants to run
+
+
+var uf;
 (function() {
     'use strict';
 
@@ -13,7 +16,7 @@
      */
 
 
-    run.$inject = ['Auth', '$state', '$rootScope'];
+    run.$inject = ['Auth', '$state', '$rootScope', 'UserInfo'];
 
     /**
      * runure by setting an optional string value for appErrorPrefix.
@@ -21,16 +24,25 @@
      * @param  {Object} $provide
      */
     /* @ngInject */
-    function run(Auth, $state, $rootScope) {
+    function run(Auth, $state, $rootScope, UserInfo) {
 
+        uf=UserInfo;
+;
 
         Auth.$onAuth(function(authData) {
             if (authData) {
-                console.log("Logged in as on RUN:", authData.uid);
-                $state.go('main.dash');
+                UserInfo.getInfoUser(authData.uid)
+                    .then(ongetUserInfo);
+
             } else {
+                UserInfo.userConfig=null;
                 console.log("Logged out");
                 $state.go('login');
+            }
+
+            function ongetUserInfo(bool) {
+                console.log("Logged in as on RUN:", authData.uid);
+                $state.go('main.dash');
             }
         });
 

@@ -15,6 +15,7 @@
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
       <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
+      <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -54,6 +55,7 @@
     <![endif]-->
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/json3/lib/json3.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -68,6 +70,7 @@
       <script src="bower_components/firebase/firebase.js"></script>
       <script src="bower_components/angularfire/dist/angularfire.js"></script>
       <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/toastr/toastr.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -76,15 +79,19 @@
         
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/common/UserConfig.factory.js"></script>
           <script src="app/common/auth.factory.js"></script>
           <script src="app/common/auth.run.js"></script>
+          <script src="app/common/exception.factory.js"></script>
           <script src="app/common/fbroot.factory.js"></script>
           <script src="app/common/firebase.constants.js"></script>
+          <script src="app/common/logger.factory.js"></script>
           <script src="app/common/timeago.directive.js"></script>
           <script src="app/dash/dash.controller.js"></script>
           <script src="app/dash/dash.js"></script>
           <script src="app/dash/placas.factory.js"></script>
           <script src="app/fotos/fotos.controller.js"></script>
+          <script src="app/fotos/fotos.factory.js"></script>
           <script src="app/fotos/fotos.js"></script>
           <script src="app/login/login.controller.js"></script>
           <script src="app/login/login.js"></script>

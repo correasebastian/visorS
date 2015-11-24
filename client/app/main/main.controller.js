@@ -13,11 +13,14 @@ var mc;
         var vm = this;
         mc = vm;
         vm.title = 'MainCtrl';
+        vm.hideToolbar=false;
 
         vm.toggleLeft = toggleLeft;
 
         vm.logout = logout;
         vm.changeTitle=changeTitle;
+        vm.filterString='';
+        vm.hideToolbarFn=hideToolbarFn;
 
 
 
@@ -43,6 +46,10 @@ var mc;
             vm.title = title;
             // )
 
+        }
+
+        function hideToolbarFn (bool) {
+            vm.hideToolbar=bool;
         }
     }
 })();

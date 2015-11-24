@@ -8,6 +8,7 @@ angular.module('angMaterialApp', [
         'ngMessages',
         'ui.router',
         'firebase',
+        // 'ui.bootstrap',
         'ngMaterial'/*,
         'app.core'*/
     ])

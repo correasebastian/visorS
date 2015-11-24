@@ -35,6 +35,7 @@
                 // var timeAgo = moment(parseInt(attrs.unixms)).fromNow();
                 var nowUnixms = moment().unix() * 1000;
                 var timeAgo = moment(parseInt(created)).from(nowUnixms);
+                element.css('color', attrs.color);
                 element.text(timeAgo);
                 $interval(function() {
                     nowUnixms = moment().unix() * 1000;
