@@ -19,6 +19,7 @@
         function sendPushToOne(options) {
 
             var notification = {
+
                 placa: options.placa,
                 mensaje: options.mensaje,
                 timestamp: Firebase.ServerValue.TIMESTAMP,
@@ -32,6 +33,7 @@
             var createPush = {};
             createPush['users/' + options.destinationUid + '/notificaciones/' + newPushKey] = notification;
             notification.to = options.destinationUid;
+            notification.toGroup=false;
             createPush['pushNotifications/' + newPushKey] = notification;
             createPush['pushNotifications/queue/tasks/' + newPushKey] = notification;
 
