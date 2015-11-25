@@ -6,21 +6,35 @@ var mc;
         .module('angMaterialApp')
         .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['$mdSidenav', 'Auth'];
+    MainCtrl.$inject = ['$mdSidenav', 'Auth', 'UserInfo', '$state'];
 
     /* @ngInject */
-    function MainCtrl($mdSidenav, Auth) {
+    function MainCtrl($mdSidenav, Auth, UserInfo, $state) {
         var vm = this;
         mc = vm;
         vm.title = 'MainCtrl';
-        vm.hideToolbar=false;
+        vm.hideToolbar = false;
 
         vm.toggleLeft = toggleLeft;
 
         vm.logout = logout;
-        vm.changeTitle=changeTitle;
-        vm.filterString='';
-        vm.hideToolbarFn=hideToolbarFn;
+        vm.changeTitle = changeTitle;
+        vm.filterString = '';
+        vm.hideToolbarFn = hideToolbarFn;
+        vm.setUserInfo = setUserInfo;
+        vm.menu = [{
+            state: 'main.dash',
+            name: 'placas',
+            icon:'action:dashboard'
+
+        },
+        {
+            state: 'main.settings',
+            name: 'settings',
+            icon:'action:settings'
+
+        }];
+        vm.go = go;
 
 
 
@@ -33,6 +47,11 @@ var mc;
 
         function toggleLeft() {
             $mdSidenav('left').toggle();
+        }
+
+
+        function go(state) {
+            $state.go(state);
         }
 
         function logout() {
@@ -48,8 +67,12 @@ var mc;
 
         }
 
-        function hideToolbarFn (bool) {
-            vm.hideToolbar=bool;
+        function hideToolbarFn(bool) {
+            vm.hideToolbar = bool;
+        }
+
+        function setUserInfo() {
+            vm.userInfo = UserInfo.mainData;
         }
     }
 })();

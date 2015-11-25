@@ -33,11 +33,15 @@ var dc;
         function goFotos(placa) {
             $state.go('main.fotos', {
                 id: placa.$id,
-                'placa': placa.placa
+                placa: placa.placa,
+                asesorId:placa.createdBy
             });
         }
 
         function getPlacas() {
+            // por ahora la voy a dejar aca
+            Main.setUserInfo();
+
             Placas.setArrayPlacas(currentAuth.uid, 5);
             return Placas.getArray()
                 .then(onGetPlacas);

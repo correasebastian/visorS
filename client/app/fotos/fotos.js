@@ -4,7 +4,7 @@ angular.module('angMaterialApp')
     .config(function($stateProvider) {
         $stateProvider
             .state('main.fotos', {
-                url: '/placas/:id/:placa',
+                url: '/placas/:id/:placa/:asesorId',
 
                 views: {
                     'mainContent': {

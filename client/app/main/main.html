@@ -3,9 +3,16 @@
     <!-- Add your site or application content here -->
     <div layout="column">
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-            <md-toolbar class="md-tall md-accent">
+            <md-toolbar class="md-tall md-hue-3">
+                <span flex></span>
+                <div layout="column" class="md-toolbar-tools-bottom inset">
+                    <!-- <user-avatar></user-avatar> -->
+                    <img class="md-avatar scm-avatar-main" ng-src="https://www.vividracing.com/catalog/images/CE-458-CFH.jpg">
+                    <div>{{Main.userInfo.fullName}}</div>
+                    <!-- <div>{{Main.userInfo.email}}</div> -->
+                </div>
             </md-toolbar>
-            <md-content layout-padding>
+            <!--   <md-content layout-padding>
                 <md-button ng-click="openBottomSheet()">
                     Open a Bottom Sheet!
                 </md-button>
@@ -21,10 +28,38 @@
                 <md-button ng-click="showGreeting($event)" class="md-raised md-primary">
                     Greet Employee
                 </md-button>
-            </md-content>
+            </md-content> -->
+            <md-list>
+                <!--  <md-content> -->
+                <md-list-item ng-repeat="item in Main.menu" ng-click="Main.go(item.state)">
+                    <!-- <a> -->
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <!-- <ng-md-icon icon="{{item.icon}}"></ng-md-icon> -->
+                            <md-icon md-svg-icon="{{item.icon}}" aria-label="android "></md-icon>
+                        </div>
+                        <div class="inset">{{item.name}}
+                        </div>
+                    </md-item-content>
+                    <!-- </a> -->
+                </md-list-item>
+            </md-list>
+           <!--  <md-divider></md-divider>
+            <md-subheader>Management</md-subheader>
+            <md-item ng-repeat="item in admin">
+                <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                    <div class="inset">
+                        <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                    </div>
+                    <div class="inset">{{item.title}}
+                    </div>
+                </md-item-content>
+            </md-item> -->
+            <!-- </md-list> -->
+            <!-- </md-content> -->
         </md-sidenav>
     </div>
-    <div  layout="column" layout-fill>
+    <div layout="column" layout-fill>
         <div layout="row">
             <md-toolbar ng-hide="Main.hideToolbar">
                 <div class="md-toolbar-tools">

@@ -8,7 +8,8 @@
     /* @ngInject */
     function exception($q, logger) {
         var service = {
-            catcher: catcher
+            catcher: catcher,
+            fbCatcher:fbCatcher
         };
         return service;
 
@@ -23,6 +24,18 @@
                 e.data.description = newMessage;
                 logger.error(newMessage);
                 return $q.reject(e);
+            };
+        }
+
+        function fbCatcher(message) {
+            return function(error) {
+                if (error) {
+                    logger.error(message, reason);
+                } else {
+                    logger.log('success ' + message);
+                }
+
+
             };
         }
     }

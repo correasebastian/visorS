@@ -16,19 +16,26 @@
             <md-button class="md-icon-button" aria-label="Settings" ng-click="Main.toggleLeft()" hide-gt-md>
                 <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
             </md-button>
+            <span flex></span>
+            <md-icon md-svg-icon="maps:directions_car" aria-label="android "></md-icon>
             <span>{{Fotos.placa}}</span>
             <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <md-icon md-svg-icon="action:face" aria-label="android "></md-icon>
+            <span>{{Fotos.asesorInfo.fullName}}</span>
+            <span flex></span>
+            <md-icon md-svg-icon="communication:phone" aria-label="android "></md-icon>
+            <span>{{Fotos.asesorInfo.numCelular}}</span>
             <span flex></span>
             <!--   <md-button>
                 Right Bar Button
             </md-button> -->
-              <md-button aria-label="photo" class="md-icon-button">
+            <md-button ng-click="Fotos.done()" aria-label="photo" class="md-icon-button">
                 <md-icon md-svg-src="action:done"></md-icon>
             </md-button>
-            <md-button aria-label="label" class="md-icon-button">
+            <md-button ng-click="Fotos.doneAll()" aria-label="label" class="md-icon-button">
                 <md-icon md-svg-src="action:done_all"></md-icon>
             </md-button>
-          
         </div>
     </md-toolbar>
     <!-- <md-content>
@@ -74,6 +81,7 @@
     </md-fab-speed-dial>
 </div> -->
 <md-content class="md-padding">
+    {{Fotos | json}}
     <md-card ng-repeat="foto in Fotos.fotos | orderBy:'-timeStamp'">
         <img ng-src="data:image/jpeg;base64,{{foto.base64Data}}" class="md-card-image" alt="Washed Out">
         <!-- <md-card-content>
