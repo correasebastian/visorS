@@ -1,37 +1,17 @@
-<div layout="row" flex flex-offset="33">
-    <!-- <div layout="column" flex flex-offset="33"> -->
-    <md-content class="md-padding">
-        <!--  <md-card>
-                <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-                <md-card-content>
-                    <h2 class="md-title">Paracosm</h2>
-                    <p>
-                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Action 1</md-button>
-                    <md-button>Action 2</md-button>
-                </md-card-actions>
-            </md-card> -->
-        <!--            <md-input-container>
-                <label>Username</label>
-                <input type="text" ng-model="user.name">
-            </md-input-container>
-            <md-input-container>
-                <label>Description</label>
-                <textarea ng-model="user.description"></textarea>
-            </md-input-container>
-        </md-content> -->
+<div layout="column" layout-fill layout-align="center center" class="scm-login">
+  <!--   <div flex="33">
+    
+    </div> -->
+   <!--  <div flex="33"> -->
         <form name="userForm">
             <md-input-container>
                 <label>email</label>
-                <input type="email" name="email" ng-model="Login.user.email" required >
+                <input type="email" name="email" ng-model="Login.user.email" required>
                 <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
                     <div ng-message="required">This is required!</div>
                     <!-- <div ng-message="md-maxlength">That's too long!</div> -->
                     <div ng-message="email">Your email address is invalid</div>
-                   <!--  <div ng-message="minlength">That's too short!</div> -->
+                    <!--  <div ng-message="minlength">That's too short!</div> -->
                 </div>
             </md-input-container>
             <md-input-container>
@@ -43,15 +23,17 @@
                     <!-- <div ng-message="md-maxlength">That's too long!</div> -->
                 </div>
             </md-input-container>
-            
             <md-button ng-sow="userForm.$valid" ng-click="Login.login(Login.user)"> Flat Button </md-button>
         </form>
-
-        {{userForm | json}}
+        <!-- {{userForm | json}}
 
 --------------------------------------------------------------
         {{userForm.$touched | json}}
 ------------------------------------------------------
-        {{userForm.$valid | json}}
+        {{userForm.$valid | json}} -->
         <!-- </div> -->
+   <!--  </div> -->
+   <!--  <div flex="33">
+    </div> -->
+   
 </div>
