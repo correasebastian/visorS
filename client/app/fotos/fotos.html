@@ -81,8 +81,8 @@
     </md-fab-speed-dial>
 </div> -->
 <md-content class="md-padding">
-    {{Fotos | json}}
-    <md-card ng-repeat="foto in Fotos.fotos | orderBy:'-timeStamp'">
+    <!-- {{Fotos | json}} -->
+    <md-card ng-repeat="foto in Fotos.fotos | orderBy:'-timestamp'">
         <img ng-src="data:image/jpeg;base64,{{foto.base64Data}}" class="md-card-image" alt="Washed Out">
         <!-- <md-card-content>
             <h2 class="md-title">Paracosm</h2>

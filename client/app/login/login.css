@@ -1,5 +1,11 @@
-.scm-login {
+.scm-login-bg-img {
     background-image: url("http://lorempixel.com/400/200/people/");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.scm-login-label {
+    font-size: xx-large;
+    font-weight: bold;
+    color:#89E9ED;
 }

@@ -1,39 +1,45 @@
-<div layout="column" layout-fill layout-align="center center" class="scm-login">
-  <!--   <div flex="33">
+<div layout="column" layout-fill layout-align="center center" class="scm-login-bg-img">
+    <!--   <div flex="33">
     
     </div> -->
-   <!--  <div flex="33"> -->
-        <form name="userForm">
-            <md-input-container>
-                <label>email</label>
-                <input type="email" name="email" ng-model="Login.user.email" required>
-                <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
-                    <div ng-message="required">This is required!</div>
-                    <!-- <div ng-message="md-maxlength">That's too long!</div> -->
-                    <div ng-message="email">Your email address is invalid</div>
-                    <!--  <div ng-message="minlength">That's too short!</div> -->
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <label>password</label>
-                <input type="password" name="password" ng-model="Login.user.password" required minlength="1"></input>
-                <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
-                    <div ng-message="required">This is required!</div>
-                    <div ng-message="minlength">That's too short!</div>
-                    <!-- <div ng-message="md-maxlength">That's too long!</div> -->
-                </div>
-            </md-input-container>
-            <md-button ng-sow="userForm.$valid" ng-click="Login.login(Login.user)"> Flat Button </md-button>
-        </form>
-        <!-- {{userForm | json}}
+    <!--  <div flex="33"> -->
+    <form name="userForm">
+        <md-input-container>
+            <label class="scm-login-label">
+                <md-icon class="scm-login-label" md-svg-icon="maps:directions_car" aria-label="android ">
+                </md-icon>
+                @
+                <!-- email -->
+            </label>
+            <input type="email" name="email" ng-model="Login.user.email" required>
+            <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+                <div ng-message="required">This is required!</div>
+                <!-- <div ng-message="md-maxlength">That's too long!</div> -->
+                <div ng-message="email">Your email address is invalid</div>
+                <!--  <div ng-message="minlength">That's too short!</div> -->
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label class="scm-login-label">
+                <md-icon class="scm-login-label" md-svg-icon="action:https" aria-label="android ">
+                </md-icon>password</label>
+            <input type="password" name="password" ng-model="Login.user.password" required minlength="1"></input>
+            <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
+                <div ng-message="required">This is required!</div>
+                <div ng-message="minlength">That's too short!</div>
+                <!-- <div ng-message="md-maxlength">That's too long!</div> -->
+            </div>
+        </md-input-container>
+        <md-button ng-sow="userForm.$valid" ng-click="Login.login(Login.user)"> Flat Button </md-button>
+    </form>
+    <!-- {{userForm | json}}
 
 --------------------------------------------------------------
         {{userForm.$touched | json}}
 ------------------------------------------------------
         {{userForm.$valid | json}} -->
-        <!-- </div> -->
-   <!--  </div> -->
-   <!--  <div flex="33">
+    <!-- </div> -->
+    <!--  </div> -->
+    <!--  <div flex="33">
     </div> -->
-   
 </div>

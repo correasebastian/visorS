@@ -4,7 +4,15 @@
     angular
         .module('angMaterialApp')
         .constant('toastr', toastr)
-        .factory('logger', logger);
+        .factory('logger', logger)
+        .config(toastrConfig);
+
+    toastrConfig.$inject = ['toastr'];
+    /* @ngInject */
+    function toastrConfig(toastr) {
+        toastr.options.timeOut = 2000;
+        toastr.options.positionClass = 'toast-bottom-right';
+    }
 
     logger.$inject = ['$log', 'toastr'];
 
